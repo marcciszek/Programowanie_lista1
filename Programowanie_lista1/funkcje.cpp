@@ -1,8 +1,6 @@
 #include "header.h"
 
 
-
-
 void gwiazdki1()
 {
 	int n;
@@ -14,6 +12,7 @@ void gwiazdki1()
 	}
 	cout << endl;
 }
+
 void gwiazdki2()
 {
 	int n;
@@ -29,12 +28,14 @@ void gwiazdki2()
 	}
 	cout << endl;
 }
+
 void napis_w_ramce3()
 {
 	cout << " " << char(0xC9) << char(0xCD) << char(0xCD) << char(0xCD) << char(0xCD) << char(0xBB) << endl;
 	cout << " " << char(0xBA) << char(0xBE) << char(0xA2) << char(0x88) << "w" << char(0xBA) << endl;
 	cout << " " << char(0xC8) << char(0xCD) << char(0xCD) << char(0xCD) << char(0xCD) << char(0xBC) << endl;
 }
+
 void kalkulator4()
 {
 	double a, b;
@@ -49,6 +50,7 @@ void kalkulator4()
 	cout << setprecision(2) << a << " / " << b << " = " << setprecision(3) << a / b << endl << endl;
 	cout << setprecision(2) << "Srednia z " << a << " i " << b << " to " << setprecision(3) << (a + b) / 2 << endl << endl;
 }
+
 void rownanie_prostej5()
 {
 	double x1, y1, x2, y2, a, b;
@@ -78,6 +80,7 @@ void rownanie_prostej5()
 	}
 	cout << endl;
 }
+
 void wartosc_funkcji_wkadratowej6()
 {
 	double a, b, c, x;
@@ -116,6 +119,7 @@ void wartosc_funkcji_wkadratowej6()
 		cout << endl << "**********************************" << endl << endl;
 	}
 }
+
 void choinka7()
 {
 	int wys,puste,znaczace,podstawa=0;	
@@ -141,6 +145,7 @@ void choinka7()
 	for (int j2 = 0;j2 < podstawa; j2++) cout << "_";
 	cout << endl << endl;
 }
+
 void tabliczka8_1()
 {
 	int wiersz, kolumna, szerokosc = 7;
@@ -203,6 +208,7 @@ void tabliczka8_1()
 		}
 	}
 }
+
 void tabliczka8_2()
 {
 	int szerokosc, wysokosc;
@@ -223,6 +229,7 @@ void tabliczka8_2()
 	}
 	cout << endl;
 }
+
 void kalkulator9()
 {
 	double a, b;
@@ -305,6 +312,7 @@ void miejsca_zerowe10()
 	}
 	else cout << "Funkcja nie posiada miejsc zerowych" << endl;
 }
+
 void uklad_rownan11()
 {
 	double a, b, c, d, e, f, x, y, W, Wx, Wy;
@@ -360,6 +368,7 @@ void podzielne_przez_trzy12()
 		}
 	}
 }
+
 int sumaCyfr13(int n)
 {
 	int suma=0;
@@ -370,6 +379,7 @@ int sumaCyfr13(int n)
 	}
 	return suma;
 }
+
 int nwd14(int a, int b)
 {
 	if (b > a)
@@ -388,6 +398,7 @@ int nwd14(int a, int b)
 	}
 	return reszta;
 }
+
 void ile_moge_kupic15(double zlotowki)
 {	
 	cout << fixed << setprecision(2);
@@ -406,4 +417,122 @@ void ile_moge_kupic15(double zlotowki)
 	cout << zlotowki / kursKoronaNorweska;
 	cout << " koron norweskich." << endl;
 	cout << "************************************" << endl << endl;
+}
+
+bool czyPierwsza16(int n)
+{
+	for (int i = 2;i <= sqrt(n) ;i++)
+	{
+		if (n % i == 0) return false;	
+	}
+	return true;
+}
+
+void wypiszPierwsze16(int n)
+{
+	int licznik = 0;
+	bool flaga = true;
+	int szerokosc = 2;
+	int szerokosc_pomocnicza = n;
+	while (szerokosc_pomocnicza > 0)
+	{
+		szerokosc_pomocnicza /= 10;
+		szerokosc++;
+	}
+	
+	for (int i = 2;i <= n;i++)
+	{
+		if (czyPierwsza16(i)==true)
+		{
+			licznik++;
+			flaga = true;
+			cout.width(szerokosc);
+			cout.fill(' ');
+			cout << i;
+		}
+		if (licznik % 10 == 0 and flaga == true)
+		{
+			cout << endl;
+			flaga = false;
+		}
+	}
+}
+
+int potega17(int podstawa, int wykladnik)
+{
+	int wynik = podstawa;
+	for (int i = 1; i < wykladnik; i++)
+	{
+		wynik *= podstawa;
+	}
+	return wynik;
+}
+
+double potega17(double podstawa, int wykladnik)
+{
+	double wynik = podstawa;
+	for (int i = 1; i < wykladnik; i++)
+	{
+		wynik *= podstawa;
+	}
+	return wynik;
+}
+
+void potega17(double& wynik_potegowania, double podstawa, int wykladnik)
+{
+	double wynik = podstawa;
+	for (int i = 1; i < wykladnik; i++)
+	{
+		wynik *= podstawa;
+	}
+	wynik_potegowania = wynik;
+}
+
+double sinus_szereg18(double argument, int ilosc_skladnikow)
+{
+	double wynik = 0;
+	for (int i = 0;i <= ilosc_skladnikow;i++)
+	{
+		wynik += pow(-1, i) / silnia(2 * i + 1) * pow(argument, 2 * i + 1);
+	}
+	return wynik;	
+}
+
+unsigned long long silnia(unsigned int liczba)
+{
+	unsigned long long wynik = 1;
+	if (liczba == 0) return wynik;
+	else
+	{
+		for (unsigned long long i = 1;i <= liczba; i++)
+		{
+			if ((wynik *= i) < 0) break;
+			else wynik *= i;
+		}
+	}
+	return wynik;
+}
+
+double sinus_szereg2_18(double argument, int ilosc_skladnikow)
+{
+	long double wynik = argument;
+	int potega = 3;
+	long long silnia = 6;
+	long silnia_pomocnicza = 3;
+	for (int i = 0;i < ilosc_skladnikow;i++)
+	{
+		if (i % 2 == 0)
+		{
+			wynik -= pow(argument, potega) / silnia;
+		}
+		else
+		{
+			wynik += pow(argument, potega) / silnia;
+		}
+		potega += 2;
+		silnia = silnia * (++silnia_pomocnicza);
+		silnia = silnia * (++silnia_pomocnicza);
+		if (silnia < 0) break;
+	}
+	return wynik;
 }

@@ -1,5 +1,8 @@
 ﻿#include "header.h"
 
+
+double wynik_potegowania_globalny;
+
 int main()
 {
 	//gwiazdki1();
@@ -18,7 +21,14 @@ int main()
 	//cout<<sumaCyfr13(1487)<<endl;
 	//cout << nwd14(748,32) << endl;
 	//cout << nwd14(5, 15) << endl;
-	ile_moge_kupic15(500);
+	//ile_moge_kupic15(500);
+	//cout<<czyPierwsza16(2)<<endl;
+	//wypiszPierwsze16(999999);
+	//cout << potega17(2, 3) << " ";
+	//cout << potega17(2.1, 3) << " ";
+	//potega17(wynik_potegowania_globalny, 2.1, 3); cout << wynik_potegowania_globalny;
+	//cout.precision(52); cout << sin(M_PI_4); cout << endl << sinus_szereg2_18(M_PI_4, 8);
 
-	system("PAUSE");
+	
+	//system("PAUSE");
 }
